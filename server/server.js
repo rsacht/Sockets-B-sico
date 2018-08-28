@@ -27,37 +27,8 @@ app.use(express.static(publicPath));
 
 //Inicializando o socket.io
 // IO = esta é a comunicaão do backend
-let io = socketIO(server);
-
-//Para saber quando um usuário se conecta
-io.on('connection', (client)=>{
-    console.log('Usuário Conectado');
-
-    //Enviando Mensagem de Boas Vindas do Servidor
-    client.emit('enviarMensagem',{
-        usuario: 'Administrador',
-        mensagem: 'Bem-Vindo a esta aplicação!'
-    });
-
-    client.on('disconnect',() =>{
-        console.log('Usuário Desconectado');
-    });
-    //Escutando o Cliente
-    client.on('enviarMensagem',(mensagem, callback) =>{
-        //console.log(mensagem);
-        if(mensagem.usuario){
-            callback({
-                resp: 'Tudo saiu bem!'
-            });
-        }else{
-            callback({
-                resp: 'Tudo saiu mal!'
-            });
-        }
-        
-    });
-});
-//Recarregue o navegador e veja a mensagem no console
+module.exports.io = socketIO(server);
+require('./sockets/socket');
 
 //Montamos a aplicação escutando a porta 3000 ou a porta que o Heroku informar
 server.listen(port, (err) => {
