@@ -12,6 +12,13 @@
     <h1>Programa de Filas</h1>
 
     <script src="socket.io/socket.io.js"></script>
+    <script>
+        var socket = io();
+
+        socket.on('connect', function(){
+            console.log('Conectado ao Servidor');
+        });
+    </script>
 
 </body>
 
