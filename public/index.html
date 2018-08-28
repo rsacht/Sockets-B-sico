@@ -27,6 +27,10 @@
             usuario: 'Rodrigo',
             mensagem: 'Olá Mundo!'
         });
+        //Escutando a Informação do Servidor
+        socket.on('enviarMensagem',function(mensagem){
+            console.log('Servidor: ', mensagem);
+        });
 
 
     </script>
