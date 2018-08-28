@@ -26,6 +26,8 @@
         socket.emit('enviarMensagem',{
             usuario: 'Rodrigo',
             mensagem: 'Olá Mundo!'
+        }, function(){
+            console.log('Disparou um callback');
         });
         //Escutando a Informação do Servidor
         socket.on('enviarMensagem',function(mensagem){
