@@ -29,6 +29,11 @@ app.use(express.static(publicPath));
 // IO = esta é a comunicaão do backend
 let io = socketIO(server);
 
+//Para saber quando um usuário se conecta
+io.on('connection', ()=>{
+    
+});
+
 //Montamos a aplicação escutando a porta 3000 ou a porta que o Heroku informar
 server.listen(port, (err) => {
 
