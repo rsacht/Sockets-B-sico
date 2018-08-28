@@ -36,6 +36,10 @@ io.on('connection', (client)=>{
     client.on('disconnect',() =>{
         console.log('Usuário Desconectado');
     });
+    //Escutando o Cliente
+    client.on('enviarMensagem',(mensagem) =>{
+        console.log(mensagem);
+    });
 });
 //Recarregue o navegador e veja a mensagem no console
 
