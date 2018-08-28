@@ -44,8 +44,17 @@ io.on('connection', (client)=>{
     });
     //Escutando o Cliente
     client.on('enviarMensagem',(mensagem, callback) =>{
-        console.log(mensagem);
-        callback();
+        //console.log(mensagem);
+        if(mensagem.usuario){
+            callback({
+                resp: 'Tudo saiu bem!'
+            });
+        }else{
+            callback({
+                resp: 'Tudo saiu mal!'
+            });
+        }
+        
     });
 });
 //Recarregue o navegador e veja a mensagem no console
