@@ -14,17 +14,19 @@ io.on('connection', (client)=>{
         console.log('Usuário Desconectado');
     });
     //Escutando o Cliente
-    client.on('enviarMensagem',(mensagem, callback) =>{
-        //console.log(mensagem);
-        if(mensagem.usuario){
-            callback({
-                resp: 'Tudo saiu bem!'
-            });
-        }else{
-            callback({
-                resp: 'Tudo saiu mal!'
-            });
-        }
+    client.on('enviarMensagem',(data, callback) =>{
+        console.log(data);
+
+        client.broadcast.emit('enviarMensagem', data);
+        // if(mensagem.usuario){
+        //     callback({
+        //         resp: 'Tudo saiu bem!'
+        //     });
+        // }else{
+        //     callback({
+        //         resp: 'Tudo saiu mal!'
+        //     });
+        // }
         
     });
 });
