@@ -33,6 +33,12 @@ let io = socketIO(server);
 io.on('connection', (client)=>{
     console.log('Usuário Conectado');
 
+    //Enviando Mensagem de Boas Vindas do Servidor
+    client.emit('enviarMensagem',{
+        usuario: 'Administrador',
+        mensagem: 'Bem-Vindo a esta aplicação!'
+    });
+
     client.on('disconnect',() =>{
         console.log('Usuário Desconectado');
     });
