@@ -18,6 +18,10 @@
         socket.on('connect', function(){
             console.log('Conectado ao Servidor');
         });
+        socket.on('disconnect', function(){
+            console.log('Conexão Perdida com o Servidor');
+        });
+
     </script>
 
 </body>

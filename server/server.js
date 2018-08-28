@@ -30,9 +30,10 @@ app.use(express.static(publicPath));
 let io = socketIO(server);
 
 //Para saber quando um usuário se conecta
-io.on('connection', ()=>{
-    
+io.on('connection', (client)=>{
+    console.log('Usuário Conectado');
 });
+//Recarregue o navegador e veja a mensagem no console
 
 //Montamos a aplicação escutando a porta 3000 ou a porta que o Heroku informar
 server.listen(port, (err) => {
