@@ -32,6 +32,10 @@ let io = socketIO(server);
 //Para saber quando um usuário se conecta
 io.on('connection', (client)=>{
     console.log('Usuário Conectado');
+
+    client.on('disconnect',() =>{
+        console.log('Usuário Desconectado');
+    });
 });
 //Recarregue o navegador e veja a mensagem no console
 
